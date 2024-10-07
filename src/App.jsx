@@ -54,7 +54,7 @@ function App() {
           className="mb-6 flex flex-col items-center"
         >
           <div
-            className="border-2 border-dashed border-neutral-300 p-6 rounded-md flex flex-col items-center justify-center cursor-pointer hover:bg-blue-50 transition"
+            className="border-2 border-dashed border-neutral-300 p-6 rounded-md flex flex-col items-center justify-center cursor-pointer hover:bg-gray-900 transition"
             onClick={() => document.getElementById("fileInput").click()}
           >
             <input
@@ -75,7 +75,7 @@ function App() {
             type="submit"
             className="mt-4 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-500 bg-gradient-to-r from-blue-800 to-green-700 text-white p-2 rounded text-xs px-5"
           >
-            Upload PDF (Max 5 Clusters)
+            Upload PDF
           </button>
         </form>
       </div>
@@ -89,12 +89,12 @@ function App() {
         {clusters.map((cluster, index) => (
           <div
             key={index}
-            className="bg-black/10 backdrop-blur-lg rounded-lg shadow-lg p-4 gap-3 flex flex-col items-start  max-h-[300px] overflow-auto specific-component"
+            className="bg-black/10 hover:bg-black/40 backdrop-blur-lg rounded-lg shadow-lg p-4 gap-3 flex flex-col items-start  max-h-[300px] overflow-auto specific-component group"
           >
-            <h2 className="font-semibold text-lg text-neutral-100">
+            <h2 className="font-semibold text-lg text-neutral-100 group-hover:text-blue-500">
               Cluster {cluster.cluster}
             </h2>
-            <ul className="text-xs text-neutral-200">
+            <ul className="text-xs text-neutral-200 group-hover:text-green-500">
               {cluster.topics.map((topic, topicIndex) => {
                 if (typeof topic === "string") {
                   try {
