@@ -23,11 +23,11 @@ function App() {
 
     try {
       const formData = new FormData();
-      formData.append("n_clusters", nClusters);
       formData.append("files", pdfFile);
 
+      // Send n_clusters as a query param
       const response = await axios.post(
-        "https://cluster-poc-4ba2ee28df2f.herokuapp.com/cluster-documents/",
+        `https://cluster-poc-4ba2ee28df2f.herokuapp.com/cluster-documents/?n_clusters=${nClusters}`,
         formData,
         {
           headers: {
