@@ -6,8 +6,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
-  const [fileName, setFileName] = useState(""); // State to track the file name
-  const nClusters = 5;
+  const [fileName, setFileName] = useState("");
+  const [nClusters, setNClusters] = useState(5); // State to track the file name
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -48,10 +48,12 @@ function App() {
   return (
     <div className="min-h-screen custom-gradient px-12 pb-16 pt-4 flex flex-col gap-8">
       <div>
-        <h1 className="text-4xl mb-6 text-white">Clusters UI</h1>
+        <h1 className="text-4xl mb-6 text-white border-b border-white/30 pb-4">
+          Clusters UI
+        </h1>
         <form
           onSubmit={handleSubmit}
-          className="mb-6 flex flex-col items-center"
+          className="mb-6 flex items-end justify-center gap-10"
         >
           <div
             className="border-2 border-dashed border-neutral-300 p-6 rounded-md flex flex-col items-center justify-center cursor-pointer hover:bg-gray-900 transition"
@@ -71,12 +73,29 @@ function App() {
               <p className="text-blue-500 mt-2">Selected file: {fileName}</p>
             )}
           </div>
-          <button
-            type="submit"
-            className="mt-4 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-500 bg-gradient-to-r from-blue-800 to-green-700 text-white p-2 rounded text-xs px-5"
-          >
-            Upload PDF
-          </button>
+          <div>
+            <div className="mb-4 flex items-center gap-2">
+              <label className="block mb-1 text-xs text-neutral-300">
+                Number of Clusters:
+              </label>
+              <input
+                type="number"
+                value={nClusters}
+                onChange={(e) => setNClusters(e.target.value)}
+                className="px-2 py-1 rounded-md bg-gray-400 border-none outline-none focus:border-green-500 focus:outline-none w-3/5"
+                min="1"
+                required
+              />
+            </div>
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="mt-4 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-500 bg-gradient-to-r from-blue-800 to-green-700 text-white p-2 rounded text-xs px-5"
+              >
+                Upload PDF
+              </button>
+            </div>
+          </div>
         </form>
       </div>
 
