@@ -53,7 +53,7 @@ function App() {
         </h1>
         <form
           onSubmit={handleSubmit}
-          className="mb-6 flex items-end justify-center gap-10"
+          className="mb-6 flex flex-col lg:flex-row items-end justify-center gap-10"
         >
           <div
             className="border-2 border-dashed border-neutral-300 p-6 rounded-md flex flex-col items-center justify-center cursor-pointer hover:bg-gray-900 transition"
@@ -74,7 +74,7 @@ function App() {
             )}
           </div>
           <div>
-            <div className="mb-4 flex items-center gap-2">
+            <div className="mb-4 flex  items-center gap-2">
               <label className="block mb-1 text-xs text-neutral-300">
                 Number of Clusters:
               </label>
